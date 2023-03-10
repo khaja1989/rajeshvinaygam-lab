@@ -1,0 +1,73 @@
+
+{
+  "baseTable": "Emp",
+  "distinctColumns":true,
+  "alias":"emp",
+  "baseColumns": "id, name, salary, email",
+  "joinTables": [
+    {
+      "table": "Address",
+      "joinType":"Inner",
+      "column": "addressId",
+      "joinColumn":"empId",
+	  "alias":"addr",
+	  "columns":"id, city, state, pincode",
+    }
+  ],"columnsConditions": [
+     {
+      "operator": "LessThan",
+      "fieldName": "salary",
+      "fieldValue": 100,
+	  "alias":"emp",
+    },
+	{
+      "operator": "GreaterThanEQ",
+      "fieldName": "salary",
+      "fieldValue": 1000,
+	  "alias":"emp",
+    },
+    {
+      "operator": "IN",
+      "fieldName": "city",
+      "fieldValue": "test",
+	  "alias":"addr",
+    },
+	{
+      "operator": "contains",
+      "fieldName": "city",
+      "fieldValue": "hyd",
+	  "alias":"addr",
+    },
+	{
+      "operator": "StartsWith",
+      "fieldName": "city",
+      "fieldValue": "hyd",
+	  "alias":"addr",
+    },
+	{
+      "operator": "EndsWith",
+      "fieldName": "city",
+      "fieldValue": "hyd",
+	  "alias":"addr",
+    },
+    {
+      "operator": "Equal",
+      "fieldName": "salary",
+      "fieldValue": 1000,
+	  "alias":"emp",
+    },
+    {
+      "operator": "NotEqual",
+      "fieldName": "name",
+      "fieldValue": "test123",
+	  "alias":"emp",
+    },
+    {
+      "operator": "BETWEEN",
+      "fieldName": "salary",
+      "fieldValue": 100,
+	  "fieldValue2": 150,
+	  "alias":"emp",
+    }
+  ]
+}
